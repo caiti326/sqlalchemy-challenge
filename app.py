@@ -17,7 +17,7 @@ base.prepare(engine,reflect=True)
 
 # Save references to each table
 measurement = base.classes.measurement
-station = Base.classes.station
+station = base.classes.station
 
 # Create our session from Python to the DB
 session = Session(engine)
@@ -48,7 +48,7 @@ def precipitation():
 
 @app.route("/api/v1.0/stations")
 def stations():
-    stations = session.query(Station.station).all()
+    stations = session.query(station.station).all()
     stations = list(np.ravel(stations))
     return jsonify(stations) 
 
